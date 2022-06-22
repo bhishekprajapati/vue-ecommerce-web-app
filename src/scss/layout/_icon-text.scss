@@ -1,0 +1,35 @@
+.l-icon-text {
+    text-align: center;
+
+    &__row:first-child {
+        width: px-to-rem(64px);
+        height: px-to-rem(64px);
+        margin: auto;
+        margin-bottom: 2em;
+        padding: 1em;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        margin-bottom: 1em;
+    }
+
+    &.l-icon-text--flex\:xl {
+        @include up-media("xl") {
+            display: flex;
+            align-items: flex-start;
+            gap: 2em;
+            text-align: left;
+    
+            & > .l-icon-text__row:first-child {
+                margin: 0;
+                min-width: px-to-rem(64px);
+                min-height: px-to-rem(64px);
+            }
+        }
+    }
+}

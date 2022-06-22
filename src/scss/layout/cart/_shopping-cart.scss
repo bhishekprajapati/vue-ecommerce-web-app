@@ -1,0 +1,31 @@
+.l-shopping-cart {
+    &__product {
+        margin-bottom: 2.5em;
+    }
+
+    @include up-media("xl") {
+        display: flex;
+        gap: 5%;
+        
+        &__product {
+            margin-bottom: 5%;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__row:first-child {
+            width: 70%;
+        }
+
+        &__row:last-child {
+            width: 25%;
+        }
+
+        &__bill {
+            position: sticky;
+            top: 10%;
+        }
+    }
+}

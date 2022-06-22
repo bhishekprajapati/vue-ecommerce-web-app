@@ -1,0 +1,19 @@
+.notify {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: .125rem solid var(--c-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include up-media("sm") {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    &-primary {
+        background-color: var(--th-c-primary-100);
+        border-color: var(--th-c-primary-100);
+    }
+}

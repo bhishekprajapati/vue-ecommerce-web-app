@@ -1,0 +1,51 @@
+@import "../vendor/svg-uri";
+
+.icon {
+    width: 1rem;
+    height: 1rem;
+    stroke: var(--i-stroke-color);
+    stroke-width: 1;
+    fill: none;
+}
+
+.icon-filled {
+    fill: var(--i-stroke-color);
+}
+
+.stroke-primary {
+    stroke: var(--th-c-primary-100);
+}
+
+// stroke-width
+.icon-sw-0 {
+    stroke-width: 0;
+}
+
+.icon-sw-1 {
+    stroke-width: 1;
+}
+
+.icon-sw-2 {
+    stroke-width: 2;
+}
+
+// icon sizing
+.icon-sm {
+    width: px-to-rem(24px);
+    height: px-to-rem(24px);
+}
+
+.icon-md {
+    width: px-to-rem(32px);
+    height: px-to-rem(32px);
+}
+
+.icon-lg {
+    width: px-to-rem(48px);
+    height: px-to-rem(48px);
+}
+
+.icon-xl {
+    width: px-to-rem(64px);
+    height: px-to-rem(64px);
+}

@@ -1,0 +1,22 @@
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.title {
+    @include apply-font("h2-b");
+    color: var(--c-text);
+
+    &-md {
+        @include apply-font("h1-b");
+    }
+}
+
+.sub-title {
+    @include apply-font("h5-sb");
+    font-style: italic;
+    color: var(--th-c-secondary-100);
+}

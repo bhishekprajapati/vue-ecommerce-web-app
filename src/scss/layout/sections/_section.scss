@@ -1,0 +1,52 @@
+// DEPENDS ON: .l-page-pad-x
+// Parent for other section stylings.
+@use "sass:math";
+
+.l-section {
+    text-align: center;
+    $m: math.div(104, 16)*1em;
+    margin: $m 0;
+
+    &__text {
+        text-align: left;
+    }
+
+    &.l-section--general {
+        margin-top: 3em;
+    }
+    
+    &__header {
+        margin-bottom: 3.5em;
+
+        &.l-section__header--general {
+            text-align: left;
+            
+            & .l-section__header-btn {
+                margin-top: 1.5em;
+            }
+
+            @include up-media("sm") {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                & .l-section__header-btn {
+                    margin-top: 0;
+                }
+
+                & .l-section__title {
+                    width: 45%;
+                }
+            }
+        }
+    }
+
+    &__options {
+        display: flex;
+        margin: 3.5em 0;
+    }
+    
+    @include up-media("sm") {
+        text-align: left;
+    }
+}

@@ -1,0 +1,64 @@
+.l-form {
+    padding: 1.5em;
+    border-radius: 2em;
+    text-align: left;
+
+    &__title {
+        margin-bottom: 2.5em;
+    }
+
+    &__field {
+        &-label {
+            margin-bottom: 1em;
+        }
+        &-input {
+            margin-bottom: 3em;
+        }
+
+        &:last-child > .l-form__field-input{
+            margin-bottom: 0;
+        }
+
+        &-group {
+            margin-bottom: 3em;
+        }
+
+        &-group\:sm {
+            @include up-media("sm") {
+                display: flex;
+                gap: 4%;
+
+                & > .l-form__field {
+                    flex: 1;
+                }
+
+                & .l-form__field-input {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &__btns {
+        margin-top: 3.5em;
+    }
+
+    // form sizing
+    &-fluid {
+        width: 100%;
+    }
+
+    @include up-media("sm") {
+        padding: 3.5em;
+        border-radius: 2.5em;
+
+
+        &__btns {
+            margin-top: 5em;
+        }
+    }
+
+    @include up-media("md") {
+        border-radius: 3em;
+    }
+}

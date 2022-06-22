@@ -1,0 +1,42 @@
+@use "sass:math";
+
+// badge classes can be used font classes
+.badge {
+    padding: .5rem 1rem;
+    border-radius: 20rem;
+    text-transform: uppercase;
+
+    // modules
+    &-bg-green-100 {
+        background-color: var(--th-c-primary-100);
+    }
+
+    &-bg-green-10 {
+        background-color: var(--th-c-primary-10);
+    }
+
+    &-bg-red {
+        background-color: var(--th-c-accent-2);
+    }
+
+    &-primary {
+        color: #fff;
+    }
+
+    &-secondary {
+        color: var(--th-c-primary-100);
+    }
+
+    &-bordered {
+        border: .25rem solid var(--c-product-card-badge-border);
+    } 
+
+    // sizing
+    &-md {
+        padding: px-to-rem(12px) px-to-rem(24px);
+    }
+
+    &-lg {
+        padding: px-to-rem(12px) px-to-rem(32px);
+    }
+}

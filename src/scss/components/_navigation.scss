@@ -1,0 +1,15 @@
+@use "sass:math";
+
+.navigation{
+    cursor: pointer;
+    color: var(--c-text);
+    
+    &-text {
+        @include apply-font("p1-r");
+        margin-right: math.div(16, 24)*1em;
+    }
+
+    &-icon {
+        vertical-align: middle;
+    }
+}

@@ -1,0 +1,18 @@
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+
+@include generate-responsive-classes() using ($bp-name) {
+    .d-none\:#{$bp-name} {
+        display: none;
+    }
+    
+    .d-block\:#{$bp-name} {
+        display: block;
+    }
+}

@@ -1,0 +1,134 @@
+// Media queries start 
+@use "sass:map";
+@use "sass:math";
+
+@mixin up-media($bp) {
+    $bp-value: map.get($up-breakpoints, $bp);
+    @if $bp-value != null{
+        @media screen and (min-width: $bp-value) {
+            @content;
+        }
+    } @else {
+        @error "Up media query break point: '#{$bp}' doesn't exists!";
+    }
+}
+
+@mixin down-media($bp) {
+    $bp-value: map.get($down-breakpoints, $bp);
+    @if $bp-value != null{
+        @media screen and (max-width: $bp-value) {
+            @content;
+        }
+    } @else {
+        @error "Down media query break point: '#{$bp}' doesn't exists!";
+    }
+}
+
+@mixin range-media($min-bp, $max-bp) {
+    $min-bp-value: map.get($up-breakpoints, $min-bp);
+    $max-bp-value: map.get($up-breakpoints, $max-bp);
+    @if $min-bp-value != null and $max-bp-value != null{
+        @media screen and (min-width: $min-bp-value) and (max-width: $max-bp-value) {
+            @content;
+        }
+    } @else {
+        @error "Invalid breakpoints!";
+    }
+}
+// Media queries end 
+
+// Typography start
+@mixin set-typography($fs, $lh, $fw) {
+    font-size: $fs;
+    line-height: $lh;
+    font-weight: $fw;
+    color: var(--c-text);
+}
+
+@mixin generate-typography($bp: null, $respond-to: "up") {
+    @each $typography-name, $typography-values in $typography {
+        $font-size: nth($typography-values, 1);
+        $line-height: nth($typography-values, 2);
+        $font-weight: nth($typography-values, 3);
+        @if $bp == null {
+            .#{$typography-name} {
+                @include set-typography($font-size, $line-height, $font-weight);
+            }
+        } @else if $respond-to == "up"{
+            .#{$typography-name}\:#{$bp} {
+                @include set-typography($font-size, $line-height, $font-weight);
+            }
+        } @else if $respond-to == "down" {
+            .#{$typography-name}\:d-#{$bp} {
+                @include set-typography($font-size, $line-height, $font-weight);
+            }
+        }
+    }
+}
+
+@mixin typography-at-bp($bp: null, $respond-to: "up") {
+    @if $bp == null {
+        @include generate-typography();
+    } 
+    @else if $respond-to == "up" {
+        @include up-media($bp) {
+            @include generate-typography($bp);
+        }
+    }
+    @else if $respond-to == "down" {
+        @include down-media($bp) {
+            @include generate-typography($bp, "down");
+        }
+    }
+    @else {
+        @error "Invalid Value of $respond-to: '#{$respond-to}'. Possible values are 'up' and 'down'!";
+    }
+}
+
+@mixin apply-font($type-name) {
+    $params: map-get($map: $typography, $key: $type-name);
+    @if  $params != null {
+        $font-size: nth($params, 1);
+        $line-height: nth($params, 2);
+        $font-weight: nth($params, 3);
+        @include set-typography($font-size, $line-height, $font-weight);
+    } @else {
+        @error "Typography type does not exists!";
+    }
+}
+// Typography end
+
+@mixin general-box-layout($font-size, $lh, $pad-x, $pad-y, $radius) {
+    @include set-typography(px-to-rem($font-size), math.div($lh, $font-size), 700);
+    padding: math.div($pad-y, $font-size)*1em math.div($pad-x, $font-size)*1em;
+    border-radius: math.div($radius, $font-size)*1em;
+}
+
+// ranged iteration with a variable step
+// @param: $list -> ($start, step, end)
+@mixin for-step($list) {
+    $min: nth($list, 1);
+    $step: nth($list, 2);
+    $max: nth($list, 3);
+    @while ( $min <= $max ) {
+        $current: $min;
+        @content($current);
+        $min: $min + $step;
+    }
+}
+
+// To generate responsive classes
+@mixin generate-responsive-classes($for: "up") {
+    @if $for == "up" {
+        @each $bp-name, $bp-value in $up-breakpoints {
+            @include up-media($bp-name) {
+                @content($bp-name);         
+            }
+        }
+
+    } @else if $for == "down" {
+
+    } @else {
+        @error "You can only generate responsive classes for up (min-width) and down (max-width) media queries! DEFAULT: (min-width) media queries."
+    }
+}

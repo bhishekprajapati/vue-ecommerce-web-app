@@ -1,0 +1,49 @@
+@use "sass:math";
+
+.l-footer {
+    $gap: 8%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    gap: $gap;
+
+    &__title {
+        margin-bottom: 1em;
+    }
+
+    &__link {
+        margin-bottom: 1em;
+    }
+
+    &__row {
+        margin-bottom: $gap;
+
+        &:nth-child(odd) {
+            width: 60% - math.div($gap, 2);
+        }
+
+        &:nth-child(even) {
+            width: 40% - math.div($gap, 2);
+        }
+    }
+
+    @include up-media("sm") {
+        &__row:nth-child(odd) {
+            width: 45%;
+        }
+    }
+
+    @include up-media("md") {
+        gap: 0;
+
+        &__row:nth-child(1) {
+            width: 30%;
+        }
+
+        &__row:nth-child(n + 2) {
+            width: math.div(70, 3)*1%;
+        }
+    }
+}

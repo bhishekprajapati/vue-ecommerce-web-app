@@ -1,0 +1,39 @@
+// DEPENDS ON: .l-section
+@use "sass:math";
+.l-feedbacks {
+    border-radius: 3.5em;
+    
+    &__reviews {
+        display: flex;
+        overflow: hidden;
+    }
+
+    &__review-item {
+        min-width: 100%;
+    }
+
+    &__pagination {
+        margin: 2em auto 2.5em auto;
+    }
+
+    &__left {
+        margin-right: 1em;
+    }
+
+    @include up-media("md") {
+        display: flex;
+        align-items: center;
+        gap: 8%;
+        padding: 3em;
+
+        &__row {
+            &:first-child {
+                flex: 0.45;
+            }
+
+            &:last-child {
+                flex: 0.55;
+            }
+        }
+    }
+}

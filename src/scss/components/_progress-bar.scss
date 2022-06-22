@@ -1,0 +1,17 @@
+.progress-bar {
+    border-radius: 1rem;
+    background-color: var(--c-border);
+    height: 0.125rem;
+    overflow: hidden;
+
+    &__status {
+        width: 0.5rem;
+        height: 100%;
+        transform: translateX(-100%);
+        background-color: var(--th-c-primary-100);
+    }
+
+    &.is-completed > .progress-bar__status {
+        transform: scaleX(10000);
+    }
+}

@@ -1,0 +1,48 @@
+@use "sass:math";
+
+.l-hero {
+    border-radius: 3.5em;
+
+    &__row {
+        &:first-child {
+            margin-bottom: 2.5em;
+            flex: 0.45;
+        }
+        &:last-child {
+            flex: 0.55;
+        }
+    }
+
+    &__media {
+        width: 100%;
+        height: calc(math.div(231, 16)*1em + 21.33vw);
+        border-radius: 3em;
+        overflow: hidden;
+    }
+
+    &__title {
+        margin: .5rem 0 1.5em 0;
+    }
+
+    @include up-media("md") {
+        display: flex;
+        align-items: center;
+        padding: 0 3em;
+        &__row {
+            &:first-child {
+                width: 50%;
+            }
+            &:last-child {
+                width: 50%;
+            }
+        }
+
+        &__title {
+            margin: .5rem 0 2.5em 0;
+        }
+    }
+
+    @include up-media("lg") {
+        gap: 2%;
+    }
+}

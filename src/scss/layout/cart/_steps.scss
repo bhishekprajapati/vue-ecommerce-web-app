@@ -1,0 +1,18 @@
+.l-steps {
+    display: flex;
+    align-items: center;
+    margin: 4em 0;
+
+    &__progress {
+        width: 20%;
+        margin: 0 1em;
+    }
+
+    &_count {
+        width: auto;
+    }
+
+    @include up-media("md") {
+        max-width: 64em;
+    }
+}

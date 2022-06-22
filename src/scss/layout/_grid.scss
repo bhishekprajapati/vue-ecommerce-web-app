@@ -1,0 +1,43 @@
+@use "sass:math";
+
+.l-grid {
+    $cols: 1;
+    $gap: 5;
+
+    &__row {
+        width: math.div(100 - $gap*($cols - 1), $cols)*1%;
+        margin-bottom: 3.5em;
+    }
+
+    @include up-media("xs") {
+        $cols: 2;
+        $gap: 8;
+        display: flex;
+        gap: $gap*1%;
+        flex-flow: row wrap;
+
+        &__row {
+            width: math.div(100 - $gap*($cols - 1), $cols)*1%;
+        }   
+    }
+
+    @include up-media("md") {
+        $cols: 3;
+        $gap: 8;
+        gap: $gap*1%;
+
+        &__row {
+            width: math.div(100 - $gap*($cols - 1), $cols)*1%;
+        }   
+    }
+
+    @include up-media("lg") {
+        $cols: 4;
+        $gap: 4;
+        gap: $gap*1%;
+
+        &__row {
+            width: math.div(100 - $gap*($cols - 1), $cols)*1%;
+        }   
+    }
+}

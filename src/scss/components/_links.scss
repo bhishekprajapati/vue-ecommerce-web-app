@@ -1,0 +1,40 @@
+@use "sass:math";
+
+.link {
+    // @include set-typography(px-to-rem(20px), math.div(24, 20), 400);
+    // text-decoration: underline;
+    // color: var(--c-text);
+    cursor: pointer;
+}
+
+.text-link {
+    all: unset;
+    box-sizing: inherit;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: underline;
+    @include apply-font("p2-r");
+}
+
+.breadcrumb {
+    &-link {
+        color: var(--c-text);
+        cursor: pointer;
+        @include apply-font("h4-b");
+        font-weight: 500;
+
+        &__text {
+            margin-right: 1rem;
+        }
+
+        &__icon {
+            vertical-align: middle;
+        }
+
+        &.is-last {
+            & > .breadcrumb-link__icon {
+                display: none;
+            }
+        }
+    }
+}

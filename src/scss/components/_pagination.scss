@@ -1,0 +1,29 @@
+.pagination {
+    text-align: center;
+
+    &-btn {
+        width: rounded-div(6, 16)*1em;
+        height: rounded-div(6, 16)*1em;
+        border-radius: 50%;
+        border: rounded-div(2, 16)*1em solid transparent;
+        background-color: var(--th-c-primary-100);
+        margin: 0 1em;
+
+        &.is-active {
+            background-color: transparent;
+            border-color: var(--th-c-primary-100);
+        }
+
+        &--sm {
+            width: rounded-div(8, 16)*1em;
+            height: rounded-div(8, 16)*1em;
+            border-width: rounded-div(2, 16)*1em;
+        }
+
+        &--md {
+            width: rounded-div(12, 16)*1em;
+            height: rounded-div(12, 16)*1em;
+            border-width: rounded-div(3, 16)*1em;
+        }
+    }
+}

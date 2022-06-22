@@ -1,0 +1,36 @@
+// DEPENDS ON: .l-section
+@use "sass:math";
+
+.l-newsletter {
+    border-radius: 3em;
+    text-align: center; // overiding .l-section
+
+    &__row:last-child {
+        margin-top: 2.5em;
+
+        @include up-media("sm") {
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+
+            .l-newsletter__field {
+                margin: 0;
+                width: 40%;
+            }
+        }
+    }
+
+    &__field {
+        text-align: left;
+        width: 80%;
+        margin: 0 auto 1em auto;
+    }
+
+    @include up-media("md") {
+        padding: 6em 0;
+
+        &__row:last-child {
+            margin-top: 3em;
+        }
+    }
+}

@@ -1,0 +1,51 @@
+@use "sass:math";
+
+.header-btn {
+    all: unset;
+    box-sizing: inherit;
+    display: none;
+    cursor: pointer;
+
+    &--cart {
+        display: inline-block;
+    }
+
+    @include up-media("sm") {
+        display: inline-block;
+        margin-left: 2em;
+    }
+}
+
+#hamburger-toggler {
+    display: none;
+
+    &:checked  ~ .hamburger-btn > #close-icon{
+        opacity: 1;
+    }
+
+    &:checked  ~ .hamburger-btn > #hamburger-icon{
+        opacity: 0;
+    }
+}
+
+#close-icon {
+    opacity: 0;
+}
+
+.hamburger-btn {
+    background-color: var(--c-card-bg);
+    padding: math.div(12, 16)*2em;
+    border-radius: 50%;
+    position: relative;
+    .icon {
+        vertical-align: middle;
+    }
+
+    #hamburger-icon, #close-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity ease 100ms;
+    }
+}

@@ -1,0 +1,21 @@
+.btn-group {
+    &__btn {
+        margin-bottom: 1em;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &-horizontal\:sm {
+        @include up-media("sm") {
+            display: flex;
+            align-items: center;
+            gap: 4%;
+            
+            & > .btn-group__btn {
+                flex: 1;
+            }
+        }
+    }
+}

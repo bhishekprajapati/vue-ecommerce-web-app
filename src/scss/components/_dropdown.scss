@@ -1,0 +1,50 @@
+// dropdown
+.dropdown-menu {
+    display: inline-block;
+    @include general-box-layout(16px, 24px, 24px, 12px, 24px);
+    border: 2px solid var(--c-border);
+    border-radius: px-to-rem(24px);
+
+    &.has-selected {
+        border-color: var(--th-c-primary-100);
+
+        & #dropdown-icon {
+            display: none;
+        }
+
+        & #remove-selection-icon {
+            display: inline-block;
+            transform: scale(0.8);
+        }
+    }
+
+    & #remove-selection-icon {
+        display: none;
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        &-placeholder {
+            @include apply-font("h5-sb");
+            color: var(--c-text);
+        }
+
+        & .icon {
+            vertical-align: middle;
+        }
+    }
+
+    &__btn-icon {
+        margin-left: 1em;
+    }
+}
+
+.dropdown-options {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height ease 1000ms;
+}

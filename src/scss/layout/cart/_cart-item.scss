@@ -1,0 +1,71 @@
+@use "sass:math";
+
+.l-cart-item {
+    text-align: center;
+
+    &__media {
+        margin: auto;
+        width: math.div(96, 16)*1em;
+        height: math.div(96, 16)*1em;
+        border-radius: 1.5em;
+    }
+    
+    &__row:first-child {
+        margin-bottom: 1.5em;
+    }
+
+    &__row:last-child {
+        margin-top: 2.5em;
+    }
+
+    @include up-media("sm") {
+        display: flex;
+        text-align: left;
+
+        &__media {
+            margin: 0;
+            margin-right: 1.5em;
+        }
+        
+        &__row:first-child {
+            margin-bottom: 1em;
+        }
+
+        &__row:last-child {
+            margin: 0 0 1em auto;
+            align-self: center;
+            position: relative;
+        }
+    }
+
+    // shopping cart item
+    &.l-cart-item--shopping {
+        padding: 1.5em;
+        border-radius: 2em;
+
+        & .l-cart-item__btns {
+            margin-top: 2.5em;
+        }
+
+        @include up-media("sm") {
+            padding: 3.5em;
+
+            & .l-cart-item__media {
+                width: math.div(192, 16)*1em;
+                height: math.div(192, 16)*1em;
+                margin-right: 3.5em;
+            }
+
+            & > .l-cart-item__row {
+                &:first-child {
+                    margin-bottom: 0;
+                }
+
+                &:last-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+}

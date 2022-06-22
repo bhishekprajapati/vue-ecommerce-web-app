@@ -1,0 +1,11 @@
+.l-breadcrumb {
+    display: none;
+
+    & > .breadcrumb-link {
+        margin-right: 1.5rem;
+    }
+
+    @include up-media("xl") {
+        display: block;
+    }
+}

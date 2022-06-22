@@ -1,0 +1,54 @@
+// DEPENDS ON: .l-section
+
+@use "sass:math";
+
+.l-categories {
+    position: relative;
+
+    &__items {
+        margin: 1.5em 0 0 0;
+        padding: 2em 0 2em math.div(44, 16)*1em;
+        display: flex;
+        overflow: hidden;
+
+        @include up-media("sm") {
+            padding-left: 2.5em;
+        }
+
+        @include up-media("xl") {
+            padding-left: 3em;
+        }
+    }
+
+    &__item {
+        margin-right: 2em;
+    }
+
+    &__btns {
+        padding: 0 2em;
+
+        .icon{
+            vertical-align: middle;
+        }
+
+        @include up-media("sm") {
+            padding: 0 2.5em;
+        }
+
+        @include up-media("xl") {
+            padding: 0 3em;
+        }
+    }
+
+    &__left {
+        margin-right: 1em;
+    }
+
+    @include up-media("sm") {
+        &__btns {
+            position: absolute;
+            top: 5%;
+            right: 0;
+        }
+    }
+}

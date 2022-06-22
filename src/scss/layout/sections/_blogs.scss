@@ -1,0 +1,62 @@
+// DEPENDS ON: .l-section
+
+@use "sass:math";
+.l-blogs {
+    // blogs grid variables
+    $cols: 2;
+    $gap: 8;
+    
+    &__btn {
+        text-align: center;
+    }
+
+    &__blog {
+        margin-bottom: 4em;
+    }
+
+    @include up-media("sm") {
+        &__items {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-flow: row wrap;
+            gap: $gap*1%;
+        }
+
+        &__blog {
+            width: math.div(100 - $gap*($cols - 1), $cols)*1%;
+            
+            &:first-child, &:nth-child(n+6) {
+                width: 100%;
+            }
+        }
+    }
+
+    @include up-media("md") {
+        $cols: 3;
+        $gap: 5;
+
+        // text-align: left;
+
+        &__items {
+            gap: $gap*1%;
+        }
+
+        &__blog {
+            width: math.div(100 - $gap*($cols - 1), $cols)*1%;
+            
+            &:first-child {
+                width: 65%;
+            }
+
+            &:nth-child(2) {
+                width: 30%;
+            }
+
+            &:nth-child(n+6) {
+                $cols: 2;
+                width: math.div(100 - $gap*($cols - 1), $cols)*1%;
+            }
+        }
+    }
+}

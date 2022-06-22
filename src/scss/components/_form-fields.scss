@@ -1,0 +1,44 @@
+@use "sass:math";
+
+.form-field {
+    all: unset;
+    box-sizing: inherit;
+    color: var(--c-text);
+    display: block;
+    @include general-box-layout(16px, 24px, 24px, 12px, 24px);
+    border: math.div(2, 16)*1em solid var(--c-border);
+    transition: border-color ease 200ms;
+
+    &::placeholder {
+        color: var(--c-field-placeholder);
+        @include apply-font("p2-r");
+    }
+
+    &-primary {
+        background-color: var(--c-field-bg);
+    }
+
+    &:focus {
+        border-color: var(--th-c-primary-100);
+    }
+
+    // sizing
+    &-lg {
+        @include general-box-layout(20px, 32px, 24px, 16px, 32px);
+    }
+
+    &-fluid {
+        width: 100%;
+    }
+}
+
+.field-label {
+    color: var(--c-text);
+    @include apply-font("p5-r");
+    &-lg {
+        @include apply-font("p4-r");
+    }
+
+
+}
+

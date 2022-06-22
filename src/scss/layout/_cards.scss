@@ -1,0 +1,48 @@
+@use "sass:math";
+
+// post card
+.l-listing-card {
+    $layout-prefix: &;
+    // width: fit-content;
+    position: relative;
+
+    // to position badge
+    &__row--absolute {
+        position: absolute;
+        top: 1.6em;
+        right: -2em;
+        z-index: 0;
+    }
+
+    &__row:first-child {
+        margin-bottom: 2em;
+    }
+
+    &__row:last-child {
+        text-align: left;
+    }
+
+    &__media {
+        width: 100%;
+        height: math.div(320, 16)*1em;
+        border-radius: 2em;
+        overflow: hidden;
+
+    }
+
+    &__header {
+        margin-bottom: 1em;
+    }
+
+    &.l-listing-card--blog-card {
+        & .product-media {
+            object-fit: cover;
+        }
+    }
+    
+    &.l-listing-card--blog-card.l-listing-card--blog-card-md {
+        & .l-listing-card__media {
+            // height: calc(math.div(300, 16)*1em + 10vw);
+        }
+    } 
+}

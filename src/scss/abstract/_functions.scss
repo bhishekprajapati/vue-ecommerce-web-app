@@ -1,0 +1,32 @@
+@use "sass:meta";
+@use "sass:math";
+
+@function px-to-em($value-in-pixels) {
+    $p: math.div($value-in-pixels, 1px);
+    @return math.div($p, 16) * 1em ;
+}
+
+@function px-to-rem($value-in-pixels) {
+    $p: math.div($value-in-pixels, 1px);
+    @return math.div($p, 16) * 1rem ;
+}
+
+
+@function rounded-div($dividend, $divisor, $upto-decimals: 2) {
+    @if math.is-unitless($upto-decimals) and $upto-decimals >= 0 {
+        $tens: 1;
+        $i: $upto-decimals;
+        @while $i > 0 {
+            $tens: $tens * 10;
+            $i: $i - 1;
+        }
+        @if $upto-decimals == 0 {
+            @return round(math.div($dividend, $divisor));
+        } @else {
+            $div: math.div($dividend, $divisor) * $tens;
+            @return math.div(round($div), $tens);
+        }
+    } @else {
+        @error "Provide a valid digit to round off the divison upto certain number of places"
+    }
+}

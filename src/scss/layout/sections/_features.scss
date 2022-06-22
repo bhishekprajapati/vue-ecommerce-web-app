@@ -1,0 +1,68 @@
+// DEPENDS ON: .l-section
+
+@use "sass:math";
+
+.l-features {
+    text-align: center; // overiding .l-section
+
+    &__row {
+        margin-top: 3.5em;
+        
+        &-item {
+            margin-bottom: 3.5em;
+        }
+
+        @include up-media("md") {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+
+            &-item {
+                width: 50%;
+            }
+        }
+
+        @include up-media("lg") {
+            padding: 0 4%;
+            flex-flow: row nowrap;
+            gap: 8%;
+            
+            &-item {
+                width: auto;
+                flex: 1;
+            }
+        }
+    }
+
+    &.l-features--product {
+        @include up-media("md") {
+            & > .l-features__row {
+                display: block;
+
+                & > .l-features__row-item {
+                    width: 100%;
+                }
+            }
+        }
+
+        @include up-media("xl") {
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            align-items: flex-start;
+            gap: 10%;
+            text-align: left;
+
+            & > .l-features__header {
+                width: 40%;
+            }
+            & > .l-features__row {
+                width: 50%;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+}

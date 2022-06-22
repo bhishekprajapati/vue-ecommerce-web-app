@@ -1,0 +1,86 @@
+@use "sass:math";
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+}
+
+*::before, *::after {
+    display: inline-block;
+}
+
+img, span, time, a, button {
+    display: inline-block;
+}
+
+a {
+    all: unset;
+    box-sizing: border-box;
+    display: inline-block;
+    font: inherit;
+}
+
+em {
+    all: unset;
+    box-sizing: inherit;
+    display: inline-block;
+}
+
+strong {
+    all: unset;
+    box-sizing: inherit;
+    display: inline-block;
+    font-weight: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+fieldset {
+    border: none;
+}
+
+body {
+    background-color: var(--c-body-bg);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    scroll-behavior: smooth;
+    user-select: none;
+    letter-spacing: 0.02rem;
+    padding-top: var(--pad-top);
+    
+    @include up-media("sm") {
+        padding-top: var(--pad-top);
+    }
+    
+    @include up-media("xl") {
+        padding-top: var(--pad-top);
+    }
+}
+
+input[type="radio"] {
+    appearance: none;
+    box-sizing: content-box;
+    border: .5rem solid var(--th-c-secondary-100);
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    border-radius: 50%;
+
+    &:checked {
+        border: .5rem solid var(--th-c-primary-100);
+    }
+}
+
+label {
+    cursor: pointer;
+}

@@ -1,0 +1,52 @@
+.l-page-pad-x {
+    padding: 0 2em;
+
+    @include up-media("sm") {
+        padding: 0 2.5em;
+    }
+    
+    @include up-media("xl") {
+        padding: 0 3.5em;
+    }
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+@include generate-responsive-classes() using ($bp-name) {
+    .mx-auto\:#{$bp-name} {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ml-auto\:#{$bp-name} {
+        margin-left: auto;
+    }
+
+    .mr-auto\:#{$bp-name} {
+        margin-right: auto;
+    }
+}
+
+.mr-2 {
+    margin-right: 2rem;
+}
+
+.px-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.pt-0 {
+    padding-top: 0;
+}

@@ -1,0 +1,10 @@
+@use "sass:list";
+
+@include typography-at-bp(); // output without media queries
+@include typography-at-bp("sm");
+
+@each $weight in $font-weight {
+    .fw-#{$weight} {
+        font-weight: $weight;
+    }
+}

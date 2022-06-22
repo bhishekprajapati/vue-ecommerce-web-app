@@ -1,0 +1,76 @@
+@use "sass:math";
+@use "sass:map";
+
+// Colors -> start
+$main-colors: (
+    "primary": #00cc96,
+    "secondary": #2975ff,
+    "tertiary-1": #ffc123,
+    "tertiary-2": #ff66a0,
+);
+$additional-colors: (
+    "accent-1": #f6f7fb,
+    "accent-2": #ff0000,
+    "light": #fff,
+    "dark-1": #000,
+    "dark-2": #1e1e27,
+    "dark-3": #14141b,
+    "dark-4": #2c2c37,
+);
+$text-colors: (
+    "text-light": #1a202c,
+    "text-dark": #f7fafc,
+);
+// Colors -> end
+
+
+
+// Typograpgy -> start
+$typography: (
+    "h1-b": (px-to-rem(40px), math.div(56, 40), 700), // (font-size, line-height, font-weight)
+    "h2-b": (px-to-rem(32px), math.div(48, 32), 700),
+    "h2-sb": (px-to-rem(32px), math.div(48, 32), 600),
+    "h3-b": (px-to-rem(24px), math.div(32, 24), 700),
+    "h3-sb": (px-to-rem(24px), math.div(40, 24), 600),
+    "h4-b": (px-to-rem(20px), math.div(32, 20), 700),
+    "h4-sb": (px-to-rem(20px), math.div(32, 20), 600),
+    "h5-b": (px-to-rem(16px), math.div(24, 16), 700),
+    "h5-sb": (px-to-rem(16px), math.div(24, 16), 600),
+    "h6-b": (px-to-rem(14px), math.div(24, 14), 700),
+    "h6-sb": (px-to-rem(14px), math.div(24, 14), 600),
+    "p1-m": (px-to-rem(24px), math.div(40, 24), 500),
+    "p1-r": (px-to-rem(24px), math.div(40, 24), 400),
+    "p1-r--lh-48": (px-to-rem(24px), math.div(48, 24), 400),
+    "p2-r": (px-to-rem(20px), math.div(32, 20), 400),
+    "p2-r--lh-24": (px-to-rem(20px), math.div(24, 20), 400),
+    "p2-r--lh-40": (px-to-rem(20px), math.div(40, 20), 400),
+    "p2-sb": (px-to-rem(20px), math.div(32, 20), 600),
+    "p3-b": (px-to-rem(18px), math.div(32, 18), 700),
+    "p3-sb": (px-to-rem(18px), math.div(32, 18), 600),
+    "p4-r": (px-to-rem(16px), math.div(24, 16), 400),
+    "p4-r--lh-32": (px-to-rem(16px), math.div(32, 16), 400),
+    "p4-m": (px-to-rem(16px), math.div(32, 16), 500),
+    "p4-sb": (px-to-rem(16px), math.div(24, 16), 600),
+    "p5-r": (px-to-rem(14px), math.div(24, 14), 400),
+);
+
+$font-weight: (400, 500, 600, 700);
+// Typograpgy -> end
+
+// Media query variables -> start
+$up-breakpoints: ( 
+    "xxs": px-to-em(375px), 
+    "xs": px-to-em(576px), 
+    "sm": px-to-em(768px), 
+    "md": px-to-em(1024px),
+    "lg": px-to-em(1200px), 
+    "xl": px-to-em(1440px), 
+    "xxl": px-to-em(1920px), 
+);
+
+$down-breakpoints: ();
+@each $bp-name, $bp-value in $up-breakpoints {
+    $d: px-to-em(0.01px);
+    $down-breakpoints: map.set($down-breakpoints, $bp-name, $bp-value - $d);
+}
+// Media query variables -> end

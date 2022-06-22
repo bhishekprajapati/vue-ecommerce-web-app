@@ -1,0 +1,32 @@
+@use "sass:math";
+@import '../vendor/svg-uri';
+
+:root {
+    @each $color-name, $color-value in $main-colors {
+        --th-c-#{$color-name}-100: #{$color-value};
+        --th-c-#{$color-name}-10: #{rgba($color-value, 0.1)};
+    }
+
+    @each $color-name, $color-value in $additional-colors {
+        --th-c-#{$color-name}: #{$color-value};
+    }
+
+    @each $color-name, $color-value in $text-colors {
+        --th-c-#{$color-name}-100: #{$color-value};
+        --th-c-#{$color-name}-64: #{rgba($color-value, 0.64)};
+        --th-c-#{$color-name}-40: #{rgba($color-value, 0.4)};
+        --th-c-#{$color-name}-24: #{rgba($color-value, 0.24)};
+    }
+
+    --th-light-c-body-bg: var(--th-c-accent-1);
+    --th-dark-c-body-bg: var(--th-c-dark-3);
+    --th-i-c-light: #000;
+    --th-i-c-dark: #fff;
+    --th-c-btn-toggle-bg-light: var(--th-c-accent-1);
+    --th-c-btn-toggle-bg-dark: var(--th-c-dark-2);
+
+    --th-c-card-bg-light: var(--th-c-accent-1);
+    --th-c-card-bg-dark: var(--th-c-dark-2);
+
+    --pad-top: #{math.div(96, 16)*1em};
+}

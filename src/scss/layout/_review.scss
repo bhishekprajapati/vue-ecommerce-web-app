@@ -1,0 +1,18 @@
+.l-review {
+    &__media {
+        margin-bottom: 2em;
+    }
+
+    &__header {
+        margin-bottom: 1em;
+    }
+
+    &__pagination {
+        margin-top: 2.5em;
+    }
+
+    // content alignment
+    &--centered {
+        text-align: center;
+    }
+}

@@ -1,0 +1,7 @@
+// DEPENDS ON: .l-section
+@use "sass:math";
+.l-products {
+    &__more {
+        text-align: center;
+    } 
+}

@@ -1,0 +1,10 @@
+.w-50\:sm {
+    @include up-media("sm") {
+        width: 50%;
+    }
+}
+
+
+.mw-34 {
+    max-width: 34em;
+}

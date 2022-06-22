@@ -1,0 +1,26 @@
+// fallback theme -> light theme
+.light-theme {
+    --c-body-bg: #fff;
+    --i-stroke-color: var(--th-i-c-light);
+    --c-text: var(--th-c-text-light-100);
+    --c-border: var(--th-c-accent-1);
+    --c-btn-toggle-bg: var(--th-c-btn-toggle-bg-light);
+    --c-card-bg: var(--th-c-btn-toggle-bg-light);
+    --c-product-card-badge-border: #fff;
+    --c-text-strike-through: var(--th-c-text-light-24);
+    --c-field-bg: #fff;
+    --c-field-placeholder: var(--th-c-text-light-40);
+}
+
+.dark-theme {
+    --c-body-bg: var(--th-dark-c-body-bg);
+    --i-stroke-color: var(--th-i-c-dark);
+    --c-text: var(--th-c-text-dark-100);
+    --c-border: var(--th-c-dark-2);
+    --c-btn-toggle-bg: var(--th-c-btn-toggle-bg-dark);
+    --c-card-bg: var(--th-c-btn-toggle-bg-dark);
+    --c-product-card-badge-border: var(--th-c-dark-3);
+    --c-text-strike-through: var(--th-c-text-dark-24);
+    --c-field-bg: var(--th-c-dark-4);
+    --c-field-placeholder: var(--th-c-text-dark-64);
+}
