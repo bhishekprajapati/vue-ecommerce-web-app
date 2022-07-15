@@ -2,7 +2,8 @@
   <TheHeader />
   
   <main class="l-page-pad-x">
-    <TheHome />
+    <!-- <TheHome /> -->
+    <TheCart />
   </main>
   
   <TheFooter />
@@ -13,13 +14,15 @@ import TheHeader from './components/Navigation/TheHeader.vue';
 import TheFooter from './components/Navigation/TheFooter.vue';
 
 import TheHome from './views/TheHome.vue';
+import TheCart from './views/TheCart.vue';
 
 export default {
   name: 'App',
   components: {
     TheHeader,
     TheFooter,
-    TheHome
+    TheHome,
+    TheCart
   }
 }
 </script>
