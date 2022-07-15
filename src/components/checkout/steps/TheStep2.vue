@@ -1,104 +1,79 @@
 <template>
-  <form class="l-form th-card-border">
-    <header class="l-form__title">
-      <h3 class="h4-sb h2-sb:sm">Shipping Details</h3>
-    </header>
-    <ul>
-      <li class="l-form__field">
-        <div class="l-form__field-label">
-          <label class="p5-r p4-r:sm" for="fullname">Full Name</label>
-        </div>
-        <div class="l-form__field-input">
-          <input
-            class="form-field form-field-fluid"
-            type="text"
-            placeholder="Enter Your Full Name..."
-            id="fullname"
-          />
-        </div>
-      </li>
+  <FormLayout>
+    <template v-slot:form-title>Shipping Details</template>
 
-      <li class="l-form__field">
-        <div class="l-form__field-label">
-          <label class="p5-r p4-r:sm" for="street-name">Street Name</label>
-        </div>
-        <div class="l-form__field-input">
-          <input
-            class="form-field form-field-fluid"
-            type="text"
-            placeholder="123 Street Name"
-            id="street-name"
-          />
-        </div>
-      </li>
+    <template v-slot:form-fields>
+      <FormField
+        :field-type="'text'"
+        :field-placeholder="'Enter Your Full Name...'"
+        :field-id="'fullname'"
+      >
+        Full Name
+      </FormField>
 
-      <div class="l-form__field-group l-form__field-group:sm">
-        <li class="l-form__field">
-          <div class="l-form__field-label">
-            <label class="p5-r p4-r:sm" for="house-number">House Number</label>
-          </div>
-          <div class="l-form__field-input">
-            <input
-              class="form-field form-field-fluid"
-              type="text"
-              placeholder="404"
-              id="house-number"
-            />
-          </div>
-        </li>
+      <FormField
+        :field-type="'text'"
+        :field-placeholder="'123 Street Name'"
+        :field-id="'street-name'"
+      >
+        Street Name
+      </FormField>
 
-        <li class="l-form__field">
-          <div class="l-form__field-label">
-            <label class="p5-r p4-r:sm" for="city">City</label>
-          </div>
-          <div class="l-form__field-input">
-            <input
-              class="form-field form-field-fluid"
-              type="text"
-              placeholder="SF"
-              id="city"
-            />
-          </div>
-        </li>
-      </div>
+      <FormFieldGroupLayout>
+        <FormField
+          :field-type="'text'"
+          :field-placeholder="'404'"
+          :field-id="'house-number'"
+        >
+          House Number
+        </FormField>
 
-      <div class="l-form__field-group l-form__field-group:sm">
-        <li class="l-form__field">
-          <div class="l-form__field-label">
-            <label class="p5-r p4-r:sm" for="country">Country</label>
-          </div>
-          <div class="l-form__field-input">
-            <input
-              class="form-field form-field-fluid"
-              type="text"
-              placeholder="India"
-              id="country"
-            />
-          </div>
-        </li>
+        <FormField
+          :field-type="'text'"
+          :field-placeholder="'xyz'"
+          :field-id="'city'"
+        >
+          City
+        </FormField>
+      </FormFieldGroupLayout>
 
-        <li class="l-form__field">
-          <div class="l-form__field-label">
-            <label class="p5-r p4-r:sm" for="zip-code">Zip Code</label>
-          </div>
-          <div class="l-form__field-input">
-            <input
-              class="form-field form-field-fluid"
-              type="text"
-              placeholder="40404"
-              id="zip-code"
-            />
-          </div>
-        </li>
-      </div>
-    </ul>
+      <FormFieldGroupLayout>
+        <FormField
+          :field-type="'text'"
+          :field-placeholder="'xyz'"
+          :field-id="'country'"
+        >
+          Country
+        </FormField>
 
-    <div class="l-form__btns">
+        <FormField
+          :field-type="'text'"
+          :field-placeholder="'40404'"
+          :field-id="'zip-code'"
+        >
+          Zip Code
+        </FormField>
+      </FormFieldGroupLayout>
+    </template>
+
+    <template v-slot:form-btns>
       <button type="button" class="btn btn-primary btn-fluid">Continue</button>
-    </div>
-  </form>
+    </template>
+  </FormLayout>
 </template>
 
 <script>
-export default {};
+import FormLayout from "../../../layouts/forms/FormLayout.vue";
+import FormFieldGroupLayout from "../../../layouts/forms/FormFieldGroupLayout.vue";
+
+import FormField from "../../forms/FormField.vue";
+
+export default {
+  components: {
+    FormFieldGroupLayout,
+    FormLayout,
+
+    FormField,
+  },
+};
 </script>

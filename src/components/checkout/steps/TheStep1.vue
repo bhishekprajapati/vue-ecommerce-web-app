@@ -1,39 +1,26 @@
 <template>
-  <form class="l-form th-card-border">
-    <header class="l-form__title">
-      <h3 class="h4-sb h2-sb:sm">Details</h3>
-    </header>
-    <ul>
-      <li class="l-form__field">
-        <div class="l-form__field-label">
-          <label class="p5-r p4-r:sm" for="user-email">Email Address</label>
-        </div>
-        <div class="l-form__field-input">
-          <input
-            class="form-field form-field-fluid"
-            type="email"
-            placeholder="Enter Your Email..."
-            id="user-email"
-          />
-        </div>
-      </li>
+  <FormLayout>
+    <template v-slot:form-title> Details </template>
 
-      <li class="l-form__field">
-        <div class="l-form__field-label">
-          <label class="p5-r p4-r:sm" for="user-pass">Password</label>
-        </div>
-        <div class="l-form__field-input">
-          <input
-            class="form-field form-field-fluid"
-            type="password"
-            placeholder="Enter Your Password..."
-            id="user-pass"
-          />
-        </div>
-      </li>
-    </ul>
+    <template v-slot:form-fields>
+      <FormField
+        :field-type="'email'"
+        :field-placeholder="'Enter your email...'"
+        :field-id="'user-email'"
+      >
+        Email Address
+      </FormField>
 
-    <div class="l-form__btns">
+      <FormField
+        :field-type="'password'"
+        :field-placeholder="'Enter your password...'"
+        :field-id="'user-password'"
+      >
+        Password
+      </FormField>
+    </template>
+
+    <template v-slot:form-btns>
       <div class="btn-group">
         <div class="btn-group__btn">
           <button type="button" class="btn btn-primary btn-fluid">
@@ -46,10 +33,18 @@
           </button>
         </div>
       </div>
-    </div>
-  </form>
+    </template>
+  </FormLayout>
 </template>
 
 <script>
-export default {};
+import FormLayout from "../../../layouts/forms/FormLayout.vue";
+import FormField from "../../forms/FormField.vue";
+
+export default {
+  components: {
+    FormLayout,
+    FormField,
+  },
+};
 </script>

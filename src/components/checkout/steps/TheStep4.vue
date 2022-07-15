@@ -1,9 +1,8 @@
 <template>
-  <form class="l-form th-card-border">
-    <header class="l-form__title">
-      <h3 class="h4-sb h2-sb:sm">Payment Details</h3>
-    </header>
-    <ul>
+  <FormLayout>
+    <template v-slot:form-title>Payment Details</template>
+
+    <template v-slot:form-fields>
       <fieldset class="l-form__field-group l-row l-gap-1">
         <div class="l-col-auto">
           <input
@@ -29,105 +28,80 @@
           <label class="p4-r p2-r:sm" for="paytm">Paytm</label>
         </div>
       </fieldset>
-      <li class="l-form__field">
-        <div class="l-form__field-label">
-          <label class="p5-r p4-r:sm" for="credit-card-number"
-            >Card Number</label
-          >
-        </div>
-        <div class="l-form__field-input">
-          <input
-            class="form-field form-field-fluid"
-            type="number"
-            placeholder="1234  9876  4321  6789"
-            id="credit-card-number"
-          />
-        </div>
-      </li>
 
-      <li class="l-form__field">
-        <div class="l-form__field-label">
-          <label class="p5-r p4-r:sm" for="street-name">Street Name</label>
-        </div>
-        <div class="l-form__field-input">
-          <input
-            class="form-field form-field-fluid"
-            type="text"
-            placeholder="123 Street Name"
-            id="street-name"
-          />
-        </div>
-      </li>
+      <FormField
+        :field-type="'number'"
+        :field-placeholder="'1234  9876  4321  6789'"
+        :field-id="'card-number'"
+      >
+        Card Number
+      </FormField>
 
-      <div class="l-form__field-group l-form__field-group:sm">
-        <li class="l-form__field">
-          <div class="l-form__field-label">
-            <label class="p5-r p4-r:sm" for="expiry-date">Expiry Date</label>
-          </div>
-          <div class="l-form__field-input">
-            <input
-              class="form-field form-field-fluid"
-              type="date"
-              placeholder="404"
-              id="expiry-date"
-            />
-          </div>
-        </li>
+      <FormField
+        :field-type="'text'"
+        :field-placeholder="'123 Street Name'"
+        :field-id="'street-name'"
+      >
+        Street Name
+      </FormField>
 
-        <li class="l-form__field">
-          <div class="l-form__field-label">
-            <label class="p5-r p4-r:sm" for="card-cvv">CVV</label>
-          </div>
-          <div class="l-form__field-input">
-            <input
-              class="form-field form-field-fluid"
-              type="text"
-              placeholder="cvv"
-              id="card-cvv"
-            />
-          </div>
-        </li>
-      </div>
+      <FormFieldGroupLayout>
+        <FormField
+          :field-type="'date'"
+          :field-placeholder="'404'"
+          :field-id="'expiry-date'"
+        >
+          Expiry Date
+        </FormField>
 
-      <div class="l-form__field-group l-form__field-group:sm">
-        <li class="l-form__field">
-          <div class="l-form__field-label">
-            <label class="p5-r p4-r:sm" for="country">Country</label>
-          </div>
-          <div class="l-form__field-input">
-            <input
-              class="form-field form-field-fluid"
-              type="text"
-              placeholder="India"
-              id="country"
-            />
-          </div>
-        </li>
+        <FormField
+          :field-type="'text'"
+          :field-placeholder="'cvv'"
+          :field-id="'card-cvv'"
+        >
+          CVV
+        </FormField>
+      </FormFieldGroupLayout>
 
-        <li class="l-form__field">
-          <div class="l-form__field-label">
-            <label class="p5-r p4-r:sm" for="zip-code">Zip Code</label>
-          </div>
-          <div class="l-form__field-input">
-            <input
-              class="form-field form-field-fluid"
-              type="text"
-              placeholder="40404"
-              id="zip-code"
-            />
-          </div>
-        </li>
-      </div>
-    </ul>
+      <FormFieldGroupLayout>
+        <FormField
+          :field-type="'text'"
+          :field-placeholder="'xyz'"
+          :field-id="'country'"
+        >
+          Country
+        </FormField>
 
-    <div class="l-form__btns">
+        <FormField
+          :field-type="'text'"
+          :field-placeholder="'40404'"
+          :field-id="'zip-code'"
+        >
+          Zip Code
+        </FormField>
+      </FormFieldGroupLayout>
+    </template>
+
+    <template v-slot:form-btns>
       <button type="button" class="btn btn-primary btn-fluid">
         Place Order
       </button>
-    </div>
-  </form>
+    </template>
+  </FormLayout>
 </template>
 
 <script>
-export default {};
+import FormLayout from "../../../layouts/forms/FormLayout.vue";
+import FormFieldGroupLayout from "../../../layouts/forms/FormFieldGroupLayout.vue";
+
+import FormField from "../../forms/FormField.vue";
+
+export default {
+  components: {
+    FormLayout,
+    FormFieldGroupLayout,
+
+    FormField,
+  },
+};
 </script>

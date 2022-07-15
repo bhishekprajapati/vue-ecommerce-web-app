@@ -1,9 +1,7 @@
 <template>
-  <form class="l-form th-card-border">
-    <header class="l-form__title">
-      <h3 class="h4-sb h2-sb:sm">Billing Details</h3>
-    </header>
-    <ul>
+  <FormLayout>
+    <template v-slot:form-title>Billing Details</template>
+    <template v-slot:form-fields>
       <li class="l-form__field">
         <div class="l-form__field-input">
           <input class="btn-radio" type="radio" id="billing-address" />
@@ -12,13 +10,21 @@
           >
         </div>
       </li>
-    </ul>
-    <div class="l-form__btns">
+    </template>
+    <template v-slot:form-btns>
       <button type="button" class="btn btn-primary btn-fluid">Continue</button>
-    </div>
-  </form>
+    </template>
+  </FormLayout>
 </template>
 
 <script>
-export default {};
+import FormLayout from "../../../layouts/forms/FormLayout.vue";
+import FormField from "../../forms/FormField.vue";
+
+export default {
+  components: {
+    FormLayout,
+    FormField,
+  },
+};
 </script>
