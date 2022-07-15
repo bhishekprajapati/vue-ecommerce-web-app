@@ -14,9 +14,11 @@
           <use href="#cross"></use>
         </svg>
       </label>
-      <a href="#" class="site-logo">
-        <img src="../../assets/logo.svg" alt="site-logo" />
-      </a>
+
+      <RouterLink to="/" class="site-logo">
+          <img src="../../assets/logo.svg" alt="site-logo" />
+      </RouterLink>
+      
       <div class="nav-icons">
         <button class="header-btn header-btn--search" type="button">
           <svg class="icon icon-sm icon-sw-2">
@@ -24,11 +26,13 @@
           </svg>
         </button>
 
-        <button class="header-btn header-btn--cart" type="button">
-          <svg class="icon icon-md icon-sw-2">
-            <use href="#cart"></use>
-          </svg>
-        </button>
+        <RouterLink to="/cart">
+          <button class="header-btn header-btn--cart" type="button">
+            <svg class="icon icon-md icon-sw-2">
+              <use href="#cart"></use>
+            </svg>
+          </button>
+        </RouterLink>
 
         <button class="header-btn header-btn--profile" type="button">
           <svg class="icon icon-sm icon-sw-2">

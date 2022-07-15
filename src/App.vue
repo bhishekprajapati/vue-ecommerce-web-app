@@ -2,8 +2,7 @@
   <TheHeader />
   
   <main class="l-page-pad-x">
-    <!-- <TheHome /> -->
-    <TheCart />
+    <RouterView />
   </main>
   
   <TheFooter />
