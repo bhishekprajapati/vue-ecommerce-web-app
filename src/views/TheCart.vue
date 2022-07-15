@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import TheGeneralSection from "../layouts/TheGeneralSection.vue";
+import TheGeneralSection from "../layouts/GeneralSectionLayout.vue";
 import TheCartItem from '../components/cart/TheCartItem.vue';
 import TheShoppingBill from '../components/cart/TheShoppingBill.vue';
 

@@ -16,9 +16,9 @@
       </label>
 
       <RouterLink to="/" class="site-logo">
-          <img src="../../assets/logo.svg" alt="site-logo" />
+        <img src="../../assets/logo.svg" alt="site-logo" />
       </RouterLink>
-      
+
       <div class="nav-icons">
         <button class="header-btn header-btn--search" type="button">
           <svg class="icon icon-sm icon-sw-2">
@@ -34,11 +34,13 @@
           </button>
         </RouterLink>
 
-        <button class="header-btn header-btn--profile" type="button">
-          <svg class="icon icon-sm icon-sw-2">
-            <use href="#profile"></use>
-          </svg>
-        </button>
+        <RouterLink to="/auth">
+          <button class="header-btn header-btn--profile" type="button">
+            <svg class="icon icon-sm icon-sw-2">
+              <use href="#profile"></use>
+            </svg>
+          </button>
+        </RouterLink>
       </div>
     </div>
     <div class="l-header__collapsible">

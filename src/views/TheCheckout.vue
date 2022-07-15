@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import TheGeneralSection from "../layouts/TheGeneralSection.vue";
+import TheGeneralSection from "../layouts/GeneralSectionLayout.vue";
 import TheCheckoutBill from '../components/checkout/TheCheckoutBill.vue';
 
 import TheCheckoutSteps from "../components/checkout/TheCheckoutSteps.vue";
