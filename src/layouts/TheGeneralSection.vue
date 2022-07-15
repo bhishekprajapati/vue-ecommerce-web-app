@@ -19,6 +19,11 @@
           </slot>
       </div>
     </header>
+
+    <slot name="checkout-steps">
+
+    </slot>
+    
     <div class="l-section__content">
         <slot name="section-content">
             

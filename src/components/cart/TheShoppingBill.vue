@@ -20,7 +20,9 @@
       </div>
     </div>
     <div class="l-cart__btns">
-      <button type="button" class="btn btn-fluid btn-primary">Checkout</button>
+      <RouterLink to="/checkout">
+        <button type="button" class="btn btn-fluid btn-primary">Checkout</button>
+      </RouterLink>
     </div>
   </div>
 </template>
