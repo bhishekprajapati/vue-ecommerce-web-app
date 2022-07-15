@@ -1,19 +1,7 @@
 <template>
   <footer class="l-page-pad-x l-footer">
     <div class="l-footer__row">
-      <button type="button" class="btn-toggle">
-        <input type="checkbox" id="theme-toggler" />
-        <label
-          class="toggle-icon-wrapper"
-          for="theme-toggler"
-          onclick="document.body.classList.toggle('dark-theme');"
-        >
-          <svg class="icon icon-sw-1">
-            <use href="#sun"></use>
-            <use href="#moon"></use>
-          </svg>
-        </label>
-      </button>
+      <TheThemeToggler />
     </div>
     <div class="l-footer__row">
       <div class="l-footer__title">
@@ -103,5 +91,11 @@
 </template>
 
 <script>
-export default {};
+import TheThemeToggler from '../buttons/TheThemeToggler.vue';
+
+export default {
+  components: {
+    TheThemeToggler
+  }
+};
 </script>
