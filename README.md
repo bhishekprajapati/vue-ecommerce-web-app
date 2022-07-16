@@ -1,5 +1,10 @@
 # vue-ecommerce
 
+## STATUS: Under Development
+
+## Live At
+[Click Here](https://vue-ecommerce-client.netlify.app/)
+
 ## Project setup
 ```
 yarn install
