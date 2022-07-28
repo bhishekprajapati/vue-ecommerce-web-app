@@ -19,8 +19,14 @@
     >
 
     <template v-slot:section-content>
-      <SignUpForm v-if="authMode === 'signup'" @switch-auth-mode="switchAuthMode" />
-      <LoginForm v-else-if="authMode === 'login'" @switch-auth-mode="switchAuthMode" />
+      <SignUpForm
+        v-if="authMode === 'signup'"
+        @switch-auth-mode="switchAuthMode"
+      />
+      <LoginForm
+        v-else-if="authMode === 'login'"
+        @switch-auth-mode="switchAuthMode"
+      />
     </template>
     <template></template>
   </GeneralSectionLayout>
@@ -37,15 +43,26 @@ export default {
       authMode: "signup",
     };
   },
+  computed: {
+    userAuthStatus() {
+      return this.$store.getters.isUserAuthenticated;
+    }
+  },
+  watch: {
+    userAuthStatus(newState, prevState) {
+      if(this.userAuthStatus) this.$router.push({ name: 'home' });
+    }
+  },
   components: {
     GeneralSectionLayout,
-
     SignUpForm,
-    LoginForm
+    LoginForm,
+  },
+  mounted() {
   },
   methods: {
     switchAuthMode(mode) {
-        this.authMode = mode;
+      this.authMode = mode;
     },
   },
 };

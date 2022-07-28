@@ -1,24 +1,33 @@
 <template>
-  <AuthFormLayout>
+  <AuthFormLayout @form-submit="login">
     <template v-slot:form-fields>
       <FormField
+        required="true"
         :field-type="'email'"
         :field-placeholder="'Enter Your Email...'"
         :field-id="'user-email'"
+        v-model="userEmail"
       >
         Email Address
       </FormField>
 
       <FormField
+        required="true"
         :field-type="'password'"
-        :field-placeholder="'Create a strong password...'"
+        :field-placeholder="'Enter your password...'"
         :field-id="'user-password'"
+        v-model="userPass"
       >
-        Create Password
+        Password
       </FormField>
 
       <li class="l-form__field">
-        <input class="btn-radio" type="radio" id="terms-and-conditions" />
+        <input
+          v-model="rememberMe"
+          class="btn-radio"
+          type="radio"
+          id="terms-and-conditions"
+        />
         <label class="btn-radio__text p2-r fw-400" for="terms-and-conditions"
           >Remember me</label
         >
@@ -28,7 +37,7 @@
     <template v-slot:form-btns>
       <div class="btn-group">
         <div class="btn-group__btn">
-          <button type="button" class="btn btn-primary btn-fluid">Login</button>
+          <button type="submit" class="btn btn-primary btn-fluid">Login</button>
         </div>
         <div class="btn-group__btn">
           <div class="btn-group btn-group-horizontal:sm">
@@ -56,6 +65,13 @@ import AuthFormLayout from "../../layouts/forms/AuthFormLayout.vue";
 import FormField from "../forms/FormField.vue";
 
 export default {
+  data() {
+    return {
+      userEmail: "",
+      userPass: "",
+      rememberMe: "",
+    };
+  },
   emits: ["switch-auth-mode"],
   components: {
     AuthFormLayout,
@@ -64,6 +80,16 @@ export default {
   methods: {
     switchToSignUp(e) {
       this.$emit("switch-auth-mode", "signup");
+    },
+    async login() {
+      try {
+        await this.$store.dispatch("login", {
+          email: this.userEmail,
+          password: this.userPass,
+        });
+      } catch (err) {
+        // auth error code
+      }
     },
   },
 };

@@ -34,7 +34,7 @@
           </button>
         </RouterLink>
 
-        <RouterLink to="/auth">
+        <RouterLink to="/account">
           <button class="header-btn header-btn--profile" type="button">
             <svg class="icon icon-sm icon-sw-2">
               <use href="#profile"></use>

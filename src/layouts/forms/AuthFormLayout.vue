@@ -1,5 +1,5 @@
 <template>
-    <form class="l-form w-50:sm mw-34 mx-auto pt-0 px-0">
+    <form @submit.prevent="$emit('form-submit')" class="l-form w-50:sm mw-34 mx-auto pt-0 px-0">
     <ul>
       <slot name="form-fields">
 
@@ -16,6 +16,6 @@
 
 <script>
 export default {
-    
+  emits: ['form-submit']
 }
 </script>
