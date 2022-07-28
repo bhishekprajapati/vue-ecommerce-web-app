@@ -67,6 +67,8 @@
 </template>
 
 <script>
+import store from "../store/index";
+
 import TheGeneralSection from "../layouts/GeneralSectionLayout.vue";
 import TheCartItem from '../components/cart/TheCartItem.vue';
 import TheShoppingBill from '../components/cart/TheShoppingBill.vue';
@@ -77,5 +79,9 @@ export default {
     TheCartItem,
     TheShoppingBill
   },
+  beforeRouteEnter(to, from, next) {
+    if(!store.getters.isUserAuthenticated) next({ name: 'authentication' });
+    next();
+  }
 };
 </script>
