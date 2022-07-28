@@ -83,7 +83,7 @@ export default {
           password: this.userPass,
         });
       } catch (err) {
-        // auth error code
+        console.log('SignUpError: ', err.message);
       }
     },
   },

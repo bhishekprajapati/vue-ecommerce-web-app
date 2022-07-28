@@ -9,4 +9,7 @@ export default {
         const userCredential = await createUserWithEmailAndPassword(getAuth(), email, password);
         commit('user', userCredential);
     },
+    logout({ commit }) {
+        commit('endUserSession');
+    }
 };

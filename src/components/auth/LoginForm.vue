@@ -88,7 +88,7 @@ export default {
           password: this.userPass,
         });
       } catch (err) {
-        // auth error code
+        console.log('LoginError: ', err.message);
       }
     },
   },

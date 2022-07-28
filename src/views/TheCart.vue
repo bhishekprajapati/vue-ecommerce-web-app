@@ -81,7 +81,7 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     if(!store.getters.isUserAuthenticated) next({ name: 'authentication' });
-    next();
+    else next();
   }
 };
 </script>
