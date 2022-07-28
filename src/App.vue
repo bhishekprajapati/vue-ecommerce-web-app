@@ -18,6 +18,12 @@ export default {
     TheHeader,
     TheFooter,
   },
+  mounted() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if(user) {
+      this.$store.commit('restoreUserSession', user);
+    }
+  }
 }
 </script>
 
