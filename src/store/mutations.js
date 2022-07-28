@@ -6,6 +6,7 @@ export default {
     endUserSession(state, user) {
         state.isUserAuthenticated = false;
         state.user = null;
+        localStorage.clear();
     },
     saveUserSession(state) {
         localStorage.setItem('user', JSON.stringify(state.user));
@@ -13,5 +14,5 @@ export default {
     restoreUserSession(state, user) {
         state.isUserAuthenticated = true;
         state.user = user;
-    }
+    },
 };
